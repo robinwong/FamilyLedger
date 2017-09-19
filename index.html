@@ -1,8 +1,268 @@
 <html>
+
 <head>
-	<title>Family Ledger</title>
+    <title>Family Ledger</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="moment.min.js"></script>
+    <script src="fl.js"></script>
 </head>
+
 <body>
-	<span>Family Ledger</span>
+    <p>
+        <span id="googleformid"><a id="FormUrl">FORM</a>: </span>
+        <br/>
+        <span id="googlespreadsheetid"><a id="SpreadSheetUrl">SPREADSHEET</a>: </span>
+    </p>
+    <!-- <input type="text" width="500" value=""/> -->
+    <div class="ss-form">
+        <form action="" method="POST" id="ss-form" target="_self" autocomplete="on" onsubmit="">
+            <ol role="list" class="ss-question-list" style="padding-left: 0;">
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item ss-item-required ss-text">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_870734432">
+                                <div class="ss-q-title">金額
+                                    <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <input type="number" name="entry.870734432" value="" class="ss-q-short" id="entry_870734432" dir="auto" aria-label="金額  Must be a number" aria-required="true" required="" step="any" title="Must be a number">
+                            <div class="error-message" id="377067753_errorMessage">Must be a number</div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item ss-item-required ss-radio">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_2063437562">
+                                <div class="ss-q-title">誰
+                                    <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <ul class="ss-choices" role="radiogroup" aria-label="誰  ">
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1124006150" value="蛋" id="group_1124006150_1" role="radio" class="ss-q-radio" aria-label="蛋" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">蛋</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1124006150" value="羅賓" id="group_1124006150_2" role="radio" class="ss-q-radio" aria-label="羅賓" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">羅賓</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div class="error-message" id="2063437562_errorMessage"></div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item ss-item-required ss-date">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_2028166157">
+                                <div class="ss-q-title">日期
+                                    <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <input type="date" name="entry.2028166157" value="" class="ss-q-date" dir="auto" id="entry_2028166157" aria-label="日期  " aria-required="true" required="">
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item  ss-time">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_775836921">
+                                <div class="ss-q-title">時間
+                                </div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <input type="time" name="entry.775836921" value="" class="ss-q-time valid" dir="auto" id="entry_775836921" aria-label="時間  ">
+                            <div class="ss-q-time-hint ss-secondary-text">Example: 11:00 AM</div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item ss-item-required ss-radio">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_400366041">
+                                <div class="ss-q-title">支出／收入
+                                    <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <ul class="ss-choices" role="radiogroup" aria-label="支出／收入  ">
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.10838098" value="支出" id="group_10838098_1" role="radio" class="ss-q-radio" aria-label="支出" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">支出</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.10838098" value="收入" id="group_10838098_2" role="radio" class="ss-q-radio" aria-label="收入" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">收入</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div class="error-message" id="400366041_errorMessage"></div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item  ss-radio">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_1925984272">
+                                <div class="ss-q-title">類別
+                                </div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <ul class="ss-choices" role="radiogroup" aria-label="類別  ">
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="食" id="group_1388919877_1" role="radio" class="ss-q-radio" aria-label="食"></span>
+                                        <span class="ss-choice-label">食</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="衣" id="group_1388919877_2" role="radio" class="ss-q-radio" aria-label="衣"></span>
+                                        <span class="ss-choice-label">衣</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="住" id="group_1388919877_3" role="radio" class="ss-q-radio" aria-label="住"></span>
+                                        <span class="ss-choice-label">住</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="行" id="group_1388919877_4" role="radio" class="ss-q-radio" aria-label="行"></span>
+                                        <span class="ss-choice-label">行</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="育" id="group_1388919877_5" role="radio" class="ss-q-radio" aria-label="育"></span>
+                                        <span class="ss-choice-label">育</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="樂" id="group_1388919877_6" role="radio" class="ss-q-radio" aria-label="樂"></span>
+                                        <span class="ss-choice-label">樂</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="醫" id="group_1388919877_7" role="radio" class="ss-q-radio" aria-label="醫"></span>
+                                        <span class="ss-choice-label">醫</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1388919877" value="__other_option__" id="group_1388919877_8" role="radio" class="ss-q-radio ss-q-other-toggle"></span>
+                                        <span class="ss-choice-label">Other:</span></label>
+                                    <span class="ss-q-other-container goog-inline-block"><input type="text" name="entry.1388919877.other_option_response" value="" class="ss-q-other" id="entry_1388919877_other_option_response" dir="auto" aria-label="Other"></span>
+                                </li>
+                            </ul>
+                            <div class="error-message" id="1925984272_errorMessage"></div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item  ss-text">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_269279646">
+                                <div class="ss-q-title">子類別
+                                </div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <input type="text" name="entry.269279646" value="" class="ss-q-short" id="entry_269279646" dir="auto" aria-label="子類別  " title="">
+                            <div class="error-message" id="231097216_errorMessage"></div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item  ss-text">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_1909717933">
+                                <div class="ss-q-title">備註
+                                </div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <input type="text" name="entry.1909717933" value="" class="ss-q-short" id="entry_1909717933" dir="auto" aria-label="備註  " title="">
+                            <div class="error-message" id="836510551_errorMessage"></div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-form-question errorbox-good" role="listitem">
+                    <div dir="auto" class="ss-item ss-item-required ss-radio">
+                        <div class="ss-form-entry">
+                            <label class="ss-q-item-label" for="entry_350089558">
+                                <div class="ss-q-title">方式
+                                    <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+                                    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+                                <div class="ss-q-help ss-secondary-text" dir="auto"></div>
+                            </label>
+                            <ul class="ss-choices" role="radiogroup" aria-label="方式  ">
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.557639900" value="現金" id="group_557639900_1" role="radio" class="ss-q-radio" aria-label="現金" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">現金</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.557639900" value="刷卡" id="group_557639900_2" role="radio" class="ss-q-radio" aria-label="刷卡" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">刷卡</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.557639900" value="悠遊卡" id="group_557639900_3" role="radio" class="ss-q-radio" aria-label="悠遊卡" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">悠遊卡</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.557639900" value="摩斯卡" id="group_557639900_4" role="radio" class="ss-q-radio" aria-label="摩斯卡" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">摩斯卡</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.557639900" value="轉帳" id="group_557639900_5" role="radio" class="ss-q-radio" aria-label="轉帳" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">轉帳</span>
+                                    </label>
+                                </li>
+                                <li class="ss-choice-item">
+                                    <label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.557639900" value="__other_option__" id="group_557639900_6" role="radio" class="ss-q-radio ss-q-other-toggle" required="" aria-required="true"></span>
+                                        <span class="ss-choice-label">Other:</span></label>
+                                    <span class="ss-q-other-container goog-inline-block"><input type="text" name="entry.557639900.other_option_response" value="" class="ss-q-other" id="entry_557639900_other_option_response" dir="auto" aria-label="Other"></span>
+                                </li>
+                            </ul>
+                            <div class="error-message" id="350089558_errorMessage"></div>
+                            <div class="required-message">This is a required question</div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="draftResponse" value="[null,null,&quot;489353782841959023&quot;]
+">
+                <input type="hidden" name="pageHistory" value="0">
+                <input type="hidden" name="fbzx" value="489353782841959023">
+                <div class="ss-send-email-receipt" style="margin-bottom: 4px;" dir="ltr">
+                    <label for="emailReceipt" style="display:inline;"></label>
+                </div>
+                <div class="ss-item ss-navigate">
+                    <table id="navigation-table">
+                        <tbody>
+                            <tr>
+                                <td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+                                    <input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
+                                    <div class="ss-password-warning ss-secondary-text">Never submit passwords through Google Forms.</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ol>
+        </form>
+    </div>
 </body>
+
 </html>
